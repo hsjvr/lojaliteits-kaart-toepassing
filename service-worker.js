@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/lojaliteits-kaart-toepassing/precache-manifest.e5b6721a12893af15bda978ea119fdce.js"
+  "/lojaliteits-kaart-toepassing/precache-manifest.a79e219ff6be839fccc798ff78af0d26.js"
 );
 
 workbox.clientsClaim();
