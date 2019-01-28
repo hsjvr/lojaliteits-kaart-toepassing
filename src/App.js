@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { CustomMenuAppBarWithStyles } from './Components';
-import { LoyaltyCards } from './Pages';
+import { LoyaltyCards, SignIn } from './Pages';
 import * as moment from 'moment';
 
 moment.locale('af', {
@@ -31,6 +31,7 @@ class App extends Component {
         <div>
           <CustomMenuAppBarWithStyles />
           <Route exact path="/" component={LoyaltyCards} />
+          <Route path="/sign-in" component={SignIn} />
         </div>
       </Router>
     );
