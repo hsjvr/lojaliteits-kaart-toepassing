@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
-import { Menu, AccountCircle } from '@material-ui/icons';
-// import { CustomDrawer } from './CustomDrawer';
+import { Menu } from '@material-ui/icons';
+import { CustomDrawer } from './CustomDrawer';
 
 const styles = {
   root: {
@@ -21,7 +21,7 @@ const styles = {
 class CustomMenuAppBar extends React.Component {
   state = {
     drawer: {
-      open: true,
+      open: false,
     },
   };
 
@@ -57,14 +57,14 @@ class CustomMenuAppBar extends React.Component {
               <Menu />
             </IconButton>
             <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
-              Lojaliteits Kaart Toepassing
+              &lt;My App&gt;
             </Typography>
-            <IconButton color="inherit">
+            {/* <IconButton color="inherit">
               <AccountCircle />
-            </IconButton>
+            </IconButton> */}
           </Toolbar>
         </AppBar>
-        {/* <CustomDrawer open={this.state.drawer.open} onClose={this.onCloseDrawer} /> */}
+        <CustomDrawer open={this.state.drawer.open} onClose={this.onCloseDrawer} />
       </div>
     );
   }
