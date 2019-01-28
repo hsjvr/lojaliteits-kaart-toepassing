@@ -57,7 +57,7 @@ class CustomMenuAppBar extends React.Component {
               <Menu />
             </IconButton>
             <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
-              &lt;My App&gt;
+              LKT
             </Typography>
             {/* <IconButton color="inherit">
               <AccountCircle />
