@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/lojaliteits-kaart-toepassing/static/js/runtime~main.5f0aa814.js"
   },
   {
-    "revision": "325e81ebea34e4483fa0",
-    "url": "/lojaliteits-kaart-toepassing/static/js/main.325e81eb.chunk.js"
+    "revision": "7a455e78b24c86071594",
+    "url": "/lojaliteits-kaart-toepassing/static/js/main.7a455e78.chunk.js"
   },
   {
     "revision": "9de769d512a1291c8b81",
     "url": "/lojaliteits-kaart-toepassing/static/js/1.9de769d5.chunk.js"
   },
   {
-    "revision": "325e81ebea34e4483fa0",
+    "revision": "7a455e78b24c86071594",
     "url": "/lojaliteits-kaart-toepassing/static/css/main.58af56d4.chunk.css"
   },
   {
-    "revision": "149c93b792a9011fc79b7927fec6c0d1",
+    "revision": "804ecefe44fad9518bdb0e95fc96f732",
     "url": "/lojaliteits-kaart-toepassing/index.html"
   }
 ];
