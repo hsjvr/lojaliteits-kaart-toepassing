@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/lojaliteits-kaart-toepassing/static/css/main.13f0b73f.chunk.css"
   },
   {
-    "revision": "0acd39854b02d627307acf2d9395dbaf",
+    "revision": "6360974189554c446a4e22dbe8ea8451",
     "url": "/lojaliteits-kaart-toepassing/index.html"
   }
 ];
