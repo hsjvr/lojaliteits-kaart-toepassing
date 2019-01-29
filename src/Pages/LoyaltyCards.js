@@ -1,5 +1,5 @@
 import React from 'react';
-import { LoyaltyCard } from '../Components';
+import { LoyaltyCard, CustomModalWithStyles } from '../Components';
 import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 import { List, ListItem, ListSubheader } from '@material-ui/core';
@@ -42,6 +42,7 @@ export class LoyaltyCards extends React.Component {
         <Fab color="primary" style={{ bottom: '15px', outline: 'none', position: 'fixed', right: '15px' }}>
           <Add />
         </Fab>
+        <CustomModalWithStyles open={true} />
       </div>
     );
   }

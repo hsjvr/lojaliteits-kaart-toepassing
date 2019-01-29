@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { List, Divider, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { List, Divider, ListItem, ListItemIcon, ListItemText, withStyles } from '@material-ui/core';
 import { CreditCard, FormatListNumbered, Bookmark, Lock } from '@material-ui/icons';
 import { withRouter } from 'react-router-dom';
 import { TEXT_VALUES } from './../TextValues';

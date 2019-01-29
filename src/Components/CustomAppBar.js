@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton, withStyles } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 import { CustomDrawer } from './CustomDrawer';
 import { TEXT_VALUES } from './../TextValues';
