@@ -1,4 +1,15 @@
-self.addEventListener('install', function(event) {});
+const version = '1.0.0';
+const cacheName = `cache-${version}`;
+
+self.addEventListener('install', function(event) {
+  e.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      return cache.addAll(['.']).then(function() {
+        self.skipWaiting();
+      });
+    }),
+  );
+});
 
 self.addEventListener('activate', function(event) {
   event.waitUntil(self.clients.claim());
@@ -8,8 +19,10 @@ self.addEventListener('fetch', function(event) {
   event.respondWith(
     caches
       .open(cacheName)
-      .then((cache) => cache.match(event.request, { ignoreSearch: true }))
-      .then((response) => {
+      .then(function(cache) {
+        cache.match(event.request, { ignoreSearch: true });
+      })
+      .then(function(response) {
         return response || fetch(event.request);
       }),
   );
