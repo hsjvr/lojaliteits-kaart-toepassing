@@ -1,13 +1,13 @@
 {
   "main.css": "/lojaliteits-kaart-toepassing/static/css/main.13f0b73f.chunk.css",
-  "main.js": "/lojaliteits-kaart-toepassing/static/js/main.d5885254.chunk.js",
-  "main.js.map": "/lojaliteits-kaart-toepassing/static/js/main.d5885254.chunk.js.map",
+  "main.js": "/lojaliteits-kaart-toepassing/static/js/main.6bd340dc.chunk.js",
+  "main.js.map": "/lojaliteits-kaart-toepassing/static/js/main.6bd340dc.chunk.js.map",
   "static/js/1.e6e5bebe.chunk.js": "/lojaliteits-kaart-toepassing/static/js/1.e6e5bebe.chunk.js",
   "static/js/1.e6e5bebe.chunk.js.map": "/lojaliteits-kaart-toepassing/static/js/1.e6e5bebe.chunk.js.map",
   "runtime~main.js": "/lojaliteits-kaart-toepassing/static/js/runtime~main.5f0aa814.js",
   "runtime~main.js.map": "/lojaliteits-kaart-toepassing/static/js/runtime~main.5f0aa814.js.map",
   "static/css/main.13f0b73f.chunk.css.map": "/lojaliteits-kaart-toepassing/static/css/main.13f0b73f.chunk.css.map",
   "index.html": "/lojaliteits-kaart-toepassing/index.html",
-  "precache-manifest.c8b65fbf02f700f7c744835a7936fd41.js": "/lojaliteits-kaart-toepassing/precache-manifest.c8b65fbf02f700f7c744835a7936fd41.js",
+  "precache-manifest.20583ce6603f3c45f3e965fe211ba149.js": "/lojaliteits-kaart-toepassing/precache-manifest.20583ce6603f3c45f3e965fe211ba149.js",
   "service-worker.js": "/lojaliteits-kaart-toepassing/service-worker.js"
 }
