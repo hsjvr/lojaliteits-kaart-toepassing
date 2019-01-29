@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
 import { CustomDrawer } from './CustomDrawer';
+import { TEXT_VALUES } from './../TextValues';
 
 const styles = {
   root: {
@@ -57,7 +58,7 @@ class CustomMenuAppBar extends React.Component {
               <Menu />
             </IconButton>
             <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
-              LKT
+              {TEXT_VALUES.APP_BAR}
             </Typography>
             {/* <IconButton color="inherit">
               <AccountCircle />

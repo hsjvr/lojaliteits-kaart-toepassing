@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { List, Divider, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { CreditCard, FormatListNumbered, Bookmark, Lock } from '@material-ui/icons';
 import { withRouter } from 'react-router-dom';
+import { TEXT_VALUES } from './../TextValues';
 
 const styles = {
   list: {
@@ -33,19 +34,19 @@ class CustomDrawerItems extends React.Component {
             <ListItemIcon>
               <CreditCard />
             </ListItemIcon>
-            <ListItemText> Lojaliteits Kaarte </ListItemText>
+            <ListItemText> {TEXT_VALUES.LOYALTY_CARDS_MENU_ITEM} </ListItemText>
           </ListItem>
-          <ListItem button component="a" onClick={() => this.onClickListItem('/', false)}>
+          <ListItem button component="a" onClick={() => this.onClickListItem('/leaderboard', false)}>
             <ListItemIcon>
               <FormatListNumbered />
             </ListItemIcon>
-            <ListItemText> Ranglys </ListItemText>
+            <ListItemText> {TEXT_VALUES.LEARDER_BOARD_MENU_ITEM} </ListItemText>
           </ListItem>
           <ListItem button component="a" onClick={() => this.onClickListItem('https://janvanriebeeck.co.za', true)}>
             <ListItemIcon>
               <Bookmark />
             </ListItemIcon>
-            <ListItemText> Webwerf </ListItemText>
+            <ListItemText> {TEXT_VALUES.WEBSITE_MENU_ITEM} </ListItemText>
           </ListItem>
         </List>
         <Divider />
@@ -54,7 +55,7 @@ class CustomDrawerItems extends React.Component {
             <ListItemIcon>
               <Lock />
             </ListItemIcon>
-            <ListItemText> Teken Uit </ListItemText>
+            <ListItemText> {TEXT_VALUES.SIGN_OUT_MENU_ITEM} </ListItemText>
           </ListItem>
         </List>
       </div>

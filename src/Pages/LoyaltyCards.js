@@ -2,6 +2,7 @@ import React from 'react';
 import { LoyaltyCard } from '../Components';
 import { Fab } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
+import { List, ListItem, ListSubheader } from '@material-ui/core';
 
 export class LoyaltyCards extends React.Component {
   state = {
@@ -22,11 +23,26 @@ export class LoyaltyCards extends React.Component {
   };
 
   render() {
-    return (<div>
-      {this.state.loyaltyCards.map((loyaltyCard) => <LoyaltyCard key={loyaltyCard.id} loyaltyCard={loyaltyCard} />)}
-      <Fab color="primary" style={{bottom: '10px', position: 'fixed', right: '10px'}}>
-        <Add />
-      </Fab>
-    </div>)
+    return (
+      <div>
+        <List
+          dense={true}
+          subheader={
+            <ListSubheader disableSticky={true} component="div">
+              Loyalty Cards
+            </ListSubheader>
+          }
+        >
+          {this.state.loyaltyCards.map((loyaltyCard) => (
+            <ListItem key={loyaltyCard.id}>
+              <LoyaltyCard loyaltyCard={loyaltyCard} />
+            </ListItem>
+          ))}
+        </List>
+        <Fab color="primary" style={{ bottom: '15px', outline: 'none', position: 'fixed', right: '15px' }}>
+          <Add />
+        </Fab>
+      </div>
+    );
   }
 }

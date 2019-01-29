@@ -40,12 +40,12 @@
     -->
 
     <script>
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker
-          .register('%PUBLIC_URL%/sw.js')
-          .then(function(registration) {})
-          .catch(function(error) {});
-      }
+      // if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('%PUBLIC_URL%/sw.js')
+        .then(function(registration) {})
+        .catch(function(error) {});
+      // }
     </script>
   </body>
 </html>

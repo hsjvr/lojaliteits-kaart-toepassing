@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 import { CustomMenuAppBarWithStyles } from './Components';
-import { LoyaltyCards, SignIn } from './Pages';
+import { Leaderboard, LoyaltyCards, SignIn } from './Pages';
 import * as moment from 'moment';
 
 moment.locale('af', {
@@ -27,9 +27,10 @@ moment.locale('af');
 class App extends Component {
   render() {
     return (
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router>
         <div>
           <CustomMenuAppBarWithStyles />
+          <Route path="/leaderboard" component={Leaderboard} />
           <Route exact path="/" component={LoyaltyCards} />
           <Route path="/sign-in" component={SignIn} />
         </div>

@@ -1,16 +1,21 @@
 import React from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@material-ui/core';
 import * as moment from 'moment';
+import { TEXT_VALUES } from './../TextValues';
 
 export class LoyaltyCard extends React.Component {
   render() {
     return (
-      <Card style={{ margin: '8px' }}>
+      <Card style={{ width: '100%' }}>
         <CardActionArea>
-          <CardMedia style={{ height: '150px' }} image="images/loyalty-card-bg.jpg" title="Loyalty Card Background" />
+          <CardMedia
+            style={{ height: '150px' }}
+            image={process.env.PUBLIC_URL + '/images/loyalty-card-bg.jpg'}
+            title="Loyalty Card Background"
+          />
           <CardContent>
             <Typography gutterBottom variant="h6">
-              Lojaliteits Kaart
+              {TEXT_VALUES.LOYALTY_CARD_ITEM}
             </Typography>
             <Typography color="textSecondary">{moment(this.props.loyaltyCard.date).format('DD MMMM YYYY')}</Typography>
             <Typography component="p">
