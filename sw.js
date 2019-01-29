@@ -2,7 +2,7 @@ const version = '1.0.0';
 const cacheName = `cache-${version}`;
 
 self.addEventListener('install', function(event) {
-  e.waitUntil(
+    event.waitUntil(
     caches.open(cacheName).then(function(cache) {
       return cache.addAll(['.']).then(function() {
         self.skipWaiting();
