@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { HashRouter as Router, Route } from 'react-router-dom';
 import { CustomMenuAppBarWithStyles } from './Components';
-import { Leaderboard, LoyaltyCards, SignIn } from './Pages';
+import { AddLoyaltyCard ,Leaderboard, LoyaltyCards, SignIn } from './Pages';
 import * as moment from 'moment';
 
 moment.locale('af', {
@@ -30,6 +30,7 @@ class App extends Component {
       <Router>
         <div>
           <CustomMenuAppBarWithStyles />
+          <Route path="/add-loyalty-card" component={AddLoyaltyCard} />
           <Route path="/leaderboard" component={Leaderboard} />
           <Route exact path="/" component={LoyaltyCards} />
           <Route path="/sign-in" component={SignIn} />

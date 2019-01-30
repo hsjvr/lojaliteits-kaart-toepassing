@@ -59,9 +59,6 @@ class CustomMenuAppBar extends React.Component {
             <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
               {TEXT_VALUES.APP_BAR}
             </Typography>
-            {/* <IconButton color="inherit">
-              <AccountCircle />
-            </IconButton> */}
           </Toolbar>
         </AppBar>
         <CustomDrawer open={this.state.drawer.open} onClose={this.onCloseDrawer} />

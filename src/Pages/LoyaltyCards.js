@@ -1,26 +1,22 @@
 import React from 'react';
-import { LoyaltyCard, CustomModalWithStyles } from '../Components';
-import { Fab } from '@material-ui/core';
+import { LoyaltyCard } from '../Components';
 import { Add } from '@material-ui/icons';
-import { List, ListItem, ListSubheader } from '@material-ui/core';
+import { List, ListItem, ListSubheader, Fab, LinearProgress } from '@material-ui/core';
+import { TEXT_VALUES } from './../TextValues';
+import { Link } from 'react-router-dom';
+import { fetchLoyaltyCards } from './../Services';
 
 export class LoyaltyCards extends React.Component {
   state = {
-    loyaltyCards: [
-      {
-        id: 1,
-        date: new Date(2019, 1, 14),
-      },
-      {
-        id: 2,
-        date: new Date(2019, 4, 22),
-      },
-      {
-        id: 3,
-        date: new Date(2019, 7, 17),
-      },
-    ],
+    loyaltyCards: null,
   };
+
+  async componentDidMount() {
+    this.setState({
+      ...this.state,
+      loyaltyCards: await fetchLoyaltyCards(),
+    });
+  }
 
   render() {
     return (
@@ -29,20 +25,28 @@ export class LoyaltyCards extends React.Component {
           dense={true}
           subheader={
             <ListSubheader disableSticky={true} component="div">
-              Loyalty Cards
+              {TEXT_VALUES.LOYALTY_CARDS_MENU_ITEM}
             </ListSubheader>
           }
         >
-          {this.state.loyaltyCards.map((loyaltyCard) => (
-            <ListItem key={loyaltyCard.id}>
-              <LoyaltyCard loyaltyCard={loyaltyCard} />
-            </ListItem>
-          ))}
+          {this.state.loyaltyCards ? (
+            this.state.loyaltyCards.map((loyaltyCard) => (
+              <ListItem key={loyaltyCard.id}>
+                <LoyaltyCard loyaltyCard={loyaltyCard} />
+              </ListItem>
+            ))
+          ) : (
+            <LinearProgress />
+          )}
         </List>
-        <Fab color="primary" style={{ bottom: '15px', outline: 'none', position: 'fixed', right: '15px' }}>
+        <Fab
+          color="primary"
+          style={{ bottom: '15px', outline: 'none', position: 'fixed', right: '15px' }}
+          component={Link}
+          to="/add-loyalty-card"
+        >
           <Add />
         </Fab>
-        <CustomModalWithStyles open={true} />
       </div>
     );
   }
