@@ -1,25 +1,35 @@
-export function fetchLoyaltyCards() {
+export function getLoyaltyCards() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve([
-        {
-          id: 1,
-          date: new Date(2019, 1, 14),
-        },
-        {
-          id: 2,
-          date: new Date(2019, 4, 22),
-        },
-        {
-          id: 3,
-          date: new Date(2019, 7, 17),
-        },
-      ]);
+      const loyaltyCards = readLocalStorage('loyaltyCards');
+
+      resolve(loyaltyCards ? loyaltyCards : []);
     }, 2000);
   });
 }
 
-export function fetchUsers() {
+export function postLoyaltyCard(code, latitude, longitude, accuracy) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let loyaltyCards = readLocalStorage('loyaltyCards');
+
+      if (!loyaltyCards) {
+        loyaltyCards = [];
+      }
+
+      loyaltyCards.push({
+        id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
+        date: new Date(),
+      });
+
+      writeLocalStorage('loyaltyCards', loyaltyCards);
+
+      resolve();
+    }, 2000);
+  });
+}
+
+export function getUsers() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -51,4 +61,22 @@ export function fetchUsers() {
       ]);
     }, 2000);
   });
+}
+
+function readLocalStorage(key) {
+  const json = localStorage.getItem(key);
+
+  if (!json) {
+    return null;
+  }
+
+  return JSON.parse(json);
+}
+
+function writeLocalStorage(key, value) {
+  if (!value) {
+    localStorage.removeItem(key);
+  }
+
+  localStorage.setItem(key, JSON.stringify(value));
 }

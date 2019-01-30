@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import { Star } from '@material-ui/icons';
 import { TEXT_VALUES } from './../TextValues';
-import { fetchUsers } from './../Services';
+import { getUsers } from './../Services';
 
 export class Leaderboard extends React.Component {
   state = {
@@ -21,7 +21,7 @@ export class Leaderboard extends React.Component {
   async componentDidMount() {
     this.setState({
       ...this.state,
-      users: await fetchUsers(),
+      users: await getUsers(),
     });
   }
 

@@ -1,1 +1,2 @@
-export * from './services';
+export * from './Geolocation';
+export * from './Services';

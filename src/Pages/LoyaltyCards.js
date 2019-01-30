@@ -4,7 +4,7 @@ import { Add } from '@material-ui/icons';
 import { List, ListItem, ListSubheader, Fab, LinearProgress } from '@material-ui/core';
 import { TEXT_VALUES } from './../TextValues';
 import { Link } from 'react-router-dom';
-import { fetchLoyaltyCards } from './../Services';
+import { getLoyaltyCards } from './../Services';
 
 export class LoyaltyCards extends React.Component {
   state = {
@@ -14,7 +14,7 @@ export class LoyaltyCards extends React.Component {
   async componentDidMount() {
     this.setState({
       ...this.state,
-      loyaltyCards: await fetchLoyaltyCards(),
+      loyaltyCards: await getLoyaltyCards(),
     });
   }
 
