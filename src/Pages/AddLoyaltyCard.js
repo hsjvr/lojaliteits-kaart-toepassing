@@ -8,7 +8,7 @@ import { withRouter } from 'react-router-dom';
 export class AddLoyaltyCard extends React.Component {
   state = {
     loading: false,
-    loyaltyCardCode: null,
+    loyaltyCardCode: '',
   };
 
   onChangeLoyaltyCardCode = (event) => {

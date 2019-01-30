@@ -37,15 +37,15 @@ export class Leaderboard extends React.Component {
           }
         >
           {this.state.users ? (
-            this.state.users.map((user) => (
-              <ListItem>
+            this.state.users.map((user, index) => (
+              <ListItem key={index}>
                 <ListItemAvatar>
                   <Avatar>{`${user.firstName[0]}${user.lastName[0]}`}</Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={`${user.firstName} ${user.lastName}`} />
                 <ListItemSecondaryAction>
-                  {[...new Array(user.numberOfLoyaltyCards)].map(() => (
-                    <Star />
+                  {[...new Array(user.numberOfLoyaltyCards)].map((x, index) => (
+                    <Star key={index} />
                   ))}
                 </ListItemSecondaryAction>
               </ListItem>

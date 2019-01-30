@@ -27,11 +27,7 @@ moment.locale('af');
 
 class App extends Component {
   componentDidMount() {
-    getGeolocation({
-      enableHighAccuracy: true,
-      maximumAge: 0,
-      timeout: 5000,
-    }).catch(() => {
+    getGeolocation().catch(() => {
       // TODO: Add snackbar
     });
   }
