@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormControl, InputLabel, Input, Fab, LinearProgress } from '@material-ui/core';
+import { FormControl, InputLabel, Input, Fab, LinearProgress, Snackbar } from '@material-ui/core';
 import { Check } from '@material-ui/icons';
 import { TEXT_VALUES } from './../TextValues';
 import { postLoyaltyCard, getGeolocation } from './../Services';
@@ -9,6 +9,7 @@ export class AddLoyaltyCard extends React.Component {
   state = {
     loading: false,
     loyaltyCardCode: '',
+    message: null,
   };
 
   onChangeLoyaltyCardCode = (event) => {
@@ -20,7 +21,12 @@ export class AddLoyaltyCard extends React.Component {
 
   onClickFab = async () => {
     if (!this.state.loyaltyCardCode) {
-      // TODO: Add snackbar
+      this.setState({
+        ...this.state,
+        message: {
+          text: TEXT_VALUES.TOAST_MESSAGE_1,
+        },
+      });
 
       return;
     }
@@ -30,7 +36,12 @@ export class AddLoyaltyCard extends React.Component {
     try {
       geolocation = await getGeolocation();
     } catch {
-      // TODO: Add snackbar
+      this.setState({
+        ...this.state,
+        message: {
+          text: TEXT_VALUES.TOAST_MESSAGE_2,
+        },
+      });
 
       return;
     }
@@ -55,6 +66,13 @@ export class AddLoyaltyCard extends React.Component {
     });
   };
 
+  onCloseSnackbar = () => {
+    this.setState({
+      ...this.state,
+      message: null,
+    });
+  };
+
   render() {
     return (
       <div style={{ padding: '16px' }}>
@@ -70,6 +88,13 @@ export class AddLoyaltyCard extends React.Component {
         >
           <Check />
         </Fab>
+        <Snackbar
+          open={this.state.message ? true : false}
+          autoHideDuration={6000}
+          onClose={this.onCloseSnackbar}
+          message={this.state.message ? <span>{this.state.message.text}</span> : null}
+          action={[]}
+        />
       </div>
     );
   }

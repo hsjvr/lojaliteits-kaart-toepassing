@@ -6,7 +6,7 @@ import { TEXT_VALUES } from './../TextValues';
 export class LoyaltyCard extends React.Component {
   render() {
     return (
-      <Card style={{ width: '100%' }}>
+      <Card onClick={() => this.props.action(this.props.loyaltyCard)} style={{ width: '100%' }}>
         <CardActionArea>
           <CardMedia
             style={{ height: '150px' }}

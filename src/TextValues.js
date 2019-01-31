@@ -6,5 +6,8 @@ export const TEXT_VALUES = {
   LOYALTY_CARD_CODE: 'Loyalty Card Code', // Lojaliteits Kaart Kode
   LOYALTY_CARD_ITEM: 'Loyalty Card', // Lojaliteits Kaart
   SIGN_OUT_MENU_ITEM: 'Sign Out', // Teken Uit
+  TOAST_MESSAGE_1: 'Please enter your loyalty card code',
+  TOAST_MESSAGE_2: 'Unable to obtain your geolocation',
+  TOAST_MESSAGE_3: 'Are you sure you want to redeem this loyalty card?',
   WEBSITE_MENU_ITEM: 'Website', // Webwerf
 };
