@@ -79,21 +79,20 @@ export class AddLoyaltyCard extends React.Component {
         {this.state.loading ? <LinearProgress /> : null}
         <FormControl style={{ width: '100%' }}>
           <InputLabel>{TEXT_VALUES.LOYALTY_CARD_CODE}</InputLabel>
-          <Input value={this.state.loyaltyCardCode} onChange={this.onChangeLoyaltyCardCode} />
+          <Input onChange={this.onChangeLoyaltyCardCode} value={this.state.loyaltyCardCode} />
         </FormControl>
         <Fab
-          onClick={this.onClickFab}
           color="primary"
+          onClick={this.onClickFab}
           style={{ bottom: '15px', outline: 'none', position: 'fixed', right: '15px' }}
         >
           <Check />
         </Fab>
         <Snackbar
-          open={this.state.message ? true : false}
           autoHideDuration={6000}
           onClose={this.onCloseSnackbar}
+          open={this.state.message ? true : false}
           message={this.state.message ? <span>{this.state.message.text}</span> : null}
-          action={[]}
         />
       </div>
     );

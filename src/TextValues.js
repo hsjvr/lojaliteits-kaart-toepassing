@@ -8,6 +8,7 @@ export const TEXT_VALUES = {
   SIGN_OUT_MENU_ITEM: 'Sign Out', // Teken Uit
   TOAST_MESSAGE_1: 'Please enter your loyalty card code',
   TOAST_MESSAGE_2: 'Unable to obtain your geolocation',
-  TOAST_MESSAGE_3: 'Are you sure you want to redeem this loyalty card?',
+  TOAST_MESSAGE_3: 'Redeem your loyalty card?',
+  TOAST_MESSAGE_3_ACTION_BUTTON_1: 'Yes',
   WEBSITE_MENU_ITEM: 'Website', // Webwerf
 };

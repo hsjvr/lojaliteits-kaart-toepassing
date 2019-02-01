@@ -10,7 +10,7 @@ export class SignIn extends React.Component {
         <img src={process.env.PUBLIC_URL + '/images/logo.jpg'} alt="Logo" />
 
         <br />
-        <Button variant="contained" color="primary" component={Link} to="/">
+        <Button color="primary" component={Link} to="/" variant="contained">
           {TEXT_VALUES.ENTER_BUTTON}
         </Button>
       </Paper>

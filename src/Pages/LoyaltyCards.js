@@ -4,7 +4,7 @@ import { Add } from '@material-ui/icons';
 import { List, ListItem, ListSubheader, Fab, LinearProgress, Snackbar, Button } from '@material-ui/core';
 import { TEXT_VALUES } from './../TextValues';
 import { Link } from 'react-router-dom';
-import { getLoyaltyCards } from './../Services';
+import { getLoyaltyCards, deleteLoyaltyCard } from './../Services';
 
 export class LoyaltyCards extends React.Component {
   state = {
@@ -31,12 +31,27 @@ export class LoyaltyCards extends React.Component {
       ...this.state,
       message: {
         action: [
-          <Button key="yes" color="secondary" size="small">
-            YES
+          <Button key="yes" onClick={() => this.onClickLoyaltyCardYes(loyaltyCard)} color="secondary" size="small">
+            {TEXT_VALUES.TOAST_MESSAGE_3_ACTION_BUTTON_1}
           </Button>,
         ],
         text: TEXT_VALUES.TOAST_MESSAGE_3,
       },
+    });
+  };
+
+  onClickLoyaltyCardYes = async (loyaltyCard) => {
+    this.setState({
+      ...this.state,
+      loyaltyCards: null,
+      message: null,
+    });
+
+    await deleteLoyaltyCard(loyaltyCard);
+
+    this.setState({
+      ...this.state,
+      loyaltyCards: await getLoyaltyCards(),
     });
   };
 

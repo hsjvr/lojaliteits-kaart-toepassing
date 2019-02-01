@@ -5,7 +5,7 @@ import { CustomDrawerItemsWithStylesWithRouter } from './CustomDrawerItems';
 export class CustomDrawer extends React.Component {
   render() {
     return (
-      <Drawer open={this.props.open} onClose={this.props.onClose}>
+      <Drawer onClose={this.props.onClose} open={this.props.open}>
         <CustomDrawerItemsWithStylesWithRouter onClose={this.props.onClose} />
       </Drawer>
     );

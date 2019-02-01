@@ -48,20 +48,15 @@ class CustomMenuAppBar extends React.Component {
       <div className={this.props.classes.root}>
         <AppBar position="static">
           <Toolbar>
-            <IconButton
-              onClick={this.onClickMenu}
-              className={this.props.classes.menuButton}
-              color="inherit"
-              aria-label="Menu"
-            >
+            <IconButton className={this.props.classes.menuButton} onClick={this.onClickMenu} color="inherit">
               <Menu />
             </IconButton>
-            <Typography variant="h6" color="inherit" className={this.props.classes.grow}>
+            <Typography className={this.props.classes.grow} color="inherit" variant="h6">
               {TEXT_VALUES.APP_BAR}
             </Typography>
           </Toolbar>
         </AppBar>
-        <CustomDrawer open={this.state.drawer.open} onClose={this.onCloseDrawer} />
+        <CustomDrawer onClose={this.onCloseDrawer} open={this.state.drawer.open} />
       </div>
     );
   }

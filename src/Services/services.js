@@ -1,14 +1,4 @@
-export function getLoyaltyCards() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const loyaltyCards = readLocalStorage('loyaltyCards');
-
-      resolve(loyaltyCards ? loyaltyCards : []);
-    }, 2000);
-  });
-}
-
-export function postLoyaltyCard(code, latitude, longitude, accuracy) {
+export function deleteLoyaltyCard(loyaltyCard) {
   return new Promise((resolve) => {
     setTimeout(() => {
       let loyaltyCards = readLocalStorage('loyaltyCards');
@@ -17,14 +7,23 @@ export function postLoyaltyCard(code, latitude, longitude, accuracy) {
         loyaltyCards = [];
       }
 
-      loyaltyCards.push({
-        id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
-        date: new Date(),
-      });
+      const index = loyaltyCards.indexOf(loyaltyCards.find((x) => x.id === loyaltyCard.id));
+
+      loyaltyCards.splice(index, 1);
 
       writeLocalStorage('loyaltyCards', loyaltyCards);
 
       resolve();
+    }, 2000);
+  });
+}
+
+export function getLoyaltyCards() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const loyaltyCards = readLocalStorage('loyaltyCards');
+
+      resolve(loyaltyCards ? loyaltyCards : []);
     }, 2000);
   });
 }
@@ -59,6 +58,27 @@ export function getUsers() {
           numberOfLoyaltyCards: Math.floor(Math.random() * 7) + 1,
         },
       ]);
+    }, 2000);
+  });
+}
+
+export function postLoyaltyCard(code, latitude, longitude, accuracy) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      let loyaltyCards = readLocalStorage('loyaltyCards');
+
+      if (!loyaltyCards) {
+        loyaltyCards = [];
+      }
+
+      loyaltyCards.push({
+        id: Math.floor(Math.random() * Number.MAX_SAFE_INTEGER),
+        date: new Date(),
+      });
+
+      writeLocalStorage('loyaltyCards', loyaltyCards);
+
+      resolve();
     }, 2000);
   });
 }
