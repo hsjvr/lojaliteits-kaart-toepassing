@@ -3,7 +3,7 @@ import auth0 from 'auth0-js';
 export const webAuth = new auth0.WebAuth({
   domain: 'xyzblocks.auth0.com',
   clientID: 'NRx_b3-TpwlpkzUD125UlX1vx02PFDeY',
-  redirectUri: 'http://localhost:3000/callback',
+  redirectUri: `${window.location.origin}/callback`,
   responseType: 'token id_token',
   scope: 'openid',
 });

@@ -4,6 +4,7 @@ import { List, Divider, ListItem, ListItemIcon, ListItemText, withStyles } from 
 import { CreditCard, FormatListNumbered, Bookmark, Lock } from '@material-ui/icons';
 import { withRouter } from 'react-router-dom';
 import { TEXT_VALUES } from './../TextValues';
+import { webAuth } from './../Services';
 
 const styles = {
   list: {
@@ -50,7 +51,17 @@ class CustomDrawerItems extends React.Component {
         </List>
         <Divider />
         <List>
-          <ListItem button component="a" onClick={() => this.onClickListItem('/sign-in', false)}>
+          <ListItem
+            button
+            component="a"
+            onClick={() => {
+              localStorage.removeItem('auth0');
+
+              webAuth.logout({
+                returnTo: `${window.location.origin}`,
+              });
+            }}
+          >
             <ListItemIcon>
               <Lock />
             </ListItemIcon>
