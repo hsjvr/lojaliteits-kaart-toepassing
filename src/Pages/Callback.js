@@ -9,13 +9,14 @@ export class Callback extends React.Component {
   };
 
   async componentDidMount() {
-    webAuth.parseHash((error, result) => {
+    webAuth.parseHash(async (error, result) => {
       if (error) {
-        console.log(error);
         return;
       }
 
       localStorage.setItem('auth0', JSON.stringify(result));
+
+      await this.props.onAuthenticate();
 
       this.props.history.push('/');
     });

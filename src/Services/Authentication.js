@@ -8,14 +8,18 @@ export const webAuth = new auth0.WebAuth({
   scope: 'openid',
 });
 
-export function getUser() {
+export async function getUser() {
   const auth0 = localStorage.getItem('auth0') ? JSON.parse(localStorage.getItem('auth0')) : null;
 
   if (!auth0) {
-    return Promise.resolve(null);
+    return null;
   }
 
-  return validateToken(auth0.idToken, auth0.idTokenPayload.nonce);
+  try {
+    return await validateToken(auth0.idToken, auth0.idTokenPayload.nonce);
+  } catch {
+    return null;
+  }
 }
 
 function validateToken(token, nonce) {
@@ -26,8 +30,6 @@ function validateToken(token, nonce) {
 
         return;
       }
-
-      console.log(result);
 
       resolve(result);
     });

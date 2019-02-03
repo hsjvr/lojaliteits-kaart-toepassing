@@ -58,7 +58,24 @@ class App extends Component {
         <div>
           <CustomMenuAppBarWithStyles />
           <Route path="/add-loyalty-card" render={() => this.authenticate(<AddLoyaltyCardWithRouter />)} />
-          <Route path="/callback" component={CallbackWithRouter} />
+          <Route
+            path="/callback"
+            render={() => (
+              <CallbackWithRouter
+                onAuthenticate={async () => {
+                  return new Promise(async (resolve) => {
+                    this.setState(
+                      {
+                        ...this.state,
+                        loggedIn: (await getUser()) ? true : false,
+                      },
+                      resolve,
+                    );
+                  });
+                }}
+              />
+            )}
+          />
           <Route path="/leaderboard" render={() => this.authenticate(<Leaderboard />)} />
           <Route exact path="/" render={() => this.authenticate(<LoyaltyCards />)} />
           <Route path="/sign-in" component={SignIn} />
