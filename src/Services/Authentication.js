@@ -9,6 +9,8 @@ export const webAuth = new auth0.WebAuth({
 });
 
 export async function getUser() {
+  return true;
+  
   const auth0 = localStorage.getItem('auth0') ? JSON.parse(localStorage.getItem('auth0')) : null;
 
   if (!auth0) {

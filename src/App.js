@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { CustomMenuAppBarWithStyles } from './Components';
-import { AddLoyaltyCardWithRouter, Leaderboard, LoyaltyCards, SignIn, CallbackWithRouter } from './Pages';
+import { AddLoyaltyCardWithRouter, Leaderboard, LoyaltyCards, SignInWithRouter, CallbackWithRouter } from './Pages';
 import * as moment from 'moment';
 import { getGeolocation, getUser } from './Services';
 
@@ -23,7 +23,7 @@ moment.locale('af', {
   ],
 });
 
-moment.locale('af');
+// moment.locale('af');
 
 class App extends Component {
   state = {
@@ -52,33 +52,28 @@ class App extends Component {
     }
   };
 
+  onAuthenticate = () => {
+    return new Promise(async (resolve) => {
+      this.setState(
+        {
+          ...this.state,
+          loggedIn: (await getUser()) ? true : false,
+        },
+        resolve,
+      );
+    });
+  };
+
   render() {
     return (
       <Router>
         <div>
           <CustomMenuAppBarWithStyles />
           <Route path="/add-loyalty-card" render={() => this.authenticate(<AddLoyaltyCardWithRouter />)} />
-          <Route
-            path="/callback"
-            render={() => (
-              <CallbackWithRouter
-                onAuthenticate={async () => {
-                  return new Promise(async (resolve) => {
-                    this.setState(
-                      {
-                        ...this.state,
-                        loggedIn: (await getUser()) ? true : false,
-                      },
-                      resolve,
-                    );
-                  });
-                }}
-              />
-            )}
-          />
+          <Route path="/callback" render={() => <CallbackWithRouter onAuthenticate={this.onAuthenticate} />} />
           <Route path="/leaderboard" render={() => this.authenticate(<Leaderboard />)} />
           <Route exact path="/" render={() => this.authenticate(<LoyaltyCards />)} />
-          <Route path="/sign-in" component={SignIn} />
+          <Route path="/sign-in" component={SignInWithRouter} />
         </div>
       </Router>
     );
